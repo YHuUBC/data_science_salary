@@ -6,7 +6,6 @@ from dash import dcc
 from dash import html
 from dash.dependencies import Input, Output
 import dash_bootstrap_components as dbc
-from dash_bootstrap_components.themes import BOOTSTRAP
 
 # Load the data
 df = pd.read_csv("data/salaries.csv")
@@ -23,25 +22,27 @@ years = [2020, 2021, 2022, 2023]
 experiences = ['Entry-level', 'Mid-level','Senior-level','Executive-level']
 
 # Create the app
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.YETI])
+BS = "https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+app = dash.Dash(__name__, external_stylesheets=[BS])
 
 # Define the layout
 app.layout = html.Div(children=[
-    html.H1('Data Scientist Salary'),
+    html.H1('Data Scientist Salary', style={'color': 'gold'}),
     html.Label("Select a year:"),
     dcc.Dropdown(
         id='year-dropdown',
         options=[{'label': year, 'value': year} for year in years],
-        value=2020
+        value=2020,
+        #style={'fontSize': '24px'}
     ),
-    html.Br(),
+    #html.Br(),
     html.Label("Select a compnay size:"),    
     dcc.Dropdown(
         id='size-dropdown',
         options=[{'label': size, 'value': size} for size in company_sizes],
         value=company_sizes[0]
     ),
-    html.Br(),
+    #html.Br(),
     html.Label("Select an experience level:"),    
     dcc.Dropdown(
         id='experience-dropdown',
@@ -58,6 +59,7 @@ app.layout = html.Div(children=[
               [Input('year-dropdown', 'value'),
                Input('size-dropdown', 'value'),
               Input('experience-dropdown', 'value')])
+
 def update_graph(year, size, experience):
     filtered_df = df[(df['work_year'] == year) & (df['company_size'] == size) & (df['experience_level'] == experience)]
     filtered_df_group = filtered_df.groupby('job_title').mean()
