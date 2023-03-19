@@ -22,12 +22,13 @@ years = [2020, 2021, 2022, 2023]
 experiences = ['Entry-level', 'Mid-level','Senior-level','Executive-level']
 
 # Create the app
-BS = "https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-app = dash.Dash(__name__, external_stylesheets=[BS])
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP])
 
 # Define the layout
 app.layout = html.Div(children=[
     html.H1('Data Scientist Salary', style={'color': 'gold'}),
+    html.H2('Based on the year of data collection, company size, and experience level', 
+                            style={'color': 'orange'}),
     html.Label("Select a year:"),
     dcc.Dropdown(
         id='year-dropdown',
