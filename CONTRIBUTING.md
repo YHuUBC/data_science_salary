@@ -8,7 +8,7 @@ helps, and credit will always be given.
 
 ### Report Bugs
 
-The best way to report a bug is to create an issue at : https://github.com/UBC-MDS/DS-Salaries/issues
+The best way to report a bug is to create an issue at : https://github.com/YHuUBC/data_science_salary/issues
 
 If you are reporting a bug, please include:
 
@@ -18,12 +18,12 @@ If you are reporting a bug, please include:
 
 ### Fix Bugs
 
-Look through the [GitHub issues](https://github.com/UBC-MDS/DS-Salaries/issues) for bugs. Anything tagged with "bug" and "help
+Look through the [GitHub issues](https://github.com/YHuUBC/data_science_salary/issues) for bugs. Anything tagged with "bug" and "help
 wanted" is open to whoever wants to implement it.
 
 ### Implement Features
 
-Look through the [GitHub issues](https://github.com/UBC-MDS/DS-Salaries/issues) for features. Anything tagged with "enhancement"
+Look through the [GitHub issues](https://github.com/YHuUBC/data_science_salary/issues) for features. Anything tagged with "enhancement"
 and "help wanted" is open to whoever wants to implement it.
 
 ### Write Documentation
@@ -34,7 +34,7 @@ on the web in blog posts, articles, and such.
 
 ### Submit Feedback
 
-The best way to send feature is to create an issue at : https://github.com/UBC-MDS/DS-Salaries/issues
+The best way to send feature is to create an issue at: https://github.com/YHuUBC/data_science_salary/issues
 
 If you are proposing a feature:
 
@@ -45,15 +45,15 @@ If you are proposing a feature:
 
 ## Get Started!
 
-Ready to contribute? Here's how to set up `DS-Salaries` for local development.
+Ready to contribute? Here's how to set up `data_science_salary` for local development.
 
-1. Fork the `DS-Salaries` repo on GitHub.
+1. Fork the `data_science_salary` repo on GitHub.
 
 
 2. Clone your fork locally:
 
     ``` console 
-    $ git clone git@github.com:your_name_here/DS-Salaries.git
+    git clone https://github.com/YHuUBC/data_science_salary.git
     ```
 
 
@@ -82,6 +82,6 @@ Before you submit a pull request, check that it meets these guidelines:
 
 ## Code of Conduct
 
-Please note that the `DS-Salaries` project is released with a
+Please note that the `data_science_salary` project is released with a
 [Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this project you agree to abide by its terms.
 <!-- #endregion -->
