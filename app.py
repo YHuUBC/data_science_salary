@@ -10,7 +10,7 @@ import dash_bootstrap_components as dbc
 # Load the data
 df = pd.read_csv("data/salaries.csv")
 
-# Define the company size options
+# Define the company size, year, and experience options
 df['company_size'] = df['company_size'].replace({'S': 'Small', 'M': 'Middle', 'L': 'Large'})
 df['experience_level'] = df['experience_level'].replace({'EN': 'Entry-level', 'MI': 'Mid-level', 
                                                          'SE': 'Senior-level', 'EX': 'Executive-level'})
@@ -21,12 +21,14 @@ company_sizes = ['Small', 'Middle', 'Large']
 years = [2020, 2021, 2022, 2023]
 experiences = ['Entry-level', 'Mid-level','Senior-level','Executive-level']
 
-# Create the app
+# Create the app, define server and title
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.SOLAR])
+server = app.server
+app.title = 'Data Science Salary'
 
 # Define the layout
 app.layout = html.Div(children=[
-    html.H1('Data Scientist Salary', style={'color': 'orange'}),
+    html.H1('Data Science Salary', style={'color': 'orange'}),
     html.H2('Based on the year of data collection, company size, and experience level', 
                             style={'color': 'orange'}),
     html.Label("Select a year:"),
