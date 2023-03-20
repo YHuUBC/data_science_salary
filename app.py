@@ -22,11 +22,11 @@ years = [2020, 2021, 2022, 2023]
 experiences = ['Entry-level', 'Mid-level','Senior-level','Executive-level']
 
 # Create the app
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.COSMO])
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.SOLAR])
 
 # Define the layout
 app.layout = html.Div(children=[
-    html.H1('Data Scientist Salary', style={'color': 'gold'}),
+    html.H1('Data Scientist Salary', style={'color': 'orange'}),
     html.H2('Based on the year of data collection, company size, and experience level', 
                             style={'color': 'orange'}),
     html.Label("Select a year:"),

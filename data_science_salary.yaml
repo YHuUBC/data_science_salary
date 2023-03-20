@@ -1,0 +1,15 @@
+# install with conda env create -f data_science_salary.yaml
+name: 'data_science_salary'
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - ipykernel
+  - ipython>=7.15
+  - pandas
+  - pip
+  - pip:
+    - dash ~= 2.8.1
+    - dash_bootstrap_components ~= 1.4.0
+    - plotly ~=5.13.1
+    - werkzeug==2.0.3
