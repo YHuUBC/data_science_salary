@@ -2,17 +2,6 @@
 
 -   Author: Yaou Hu
 
-# Table of Contents
-
-
--   [DS-Salaries on shinyapps.io](#DS-Salaries-on-shinyapps)
--   [Motivation and research questions](#Motivation-and-research-questions)
--   [Description of the app](#Description-of-the-app)
--   [Installation](#Installation)
--   [Get Involved](#Get-Involved)
--   [Contact us](#Contact-us)
--   [License](#license)
-
 ## Data Science Salary Dash App
 
 The dash app has been deployed on Render.com. It can be accessed [here](https://data-science-salary.onrender.com/).
