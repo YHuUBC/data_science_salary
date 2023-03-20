@@ -27,36 +27,44 @@ server = app.server
 app.title = 'Data Science Salary'
 
 # Define the layout
-app.layout = html.Div(children=[
-    html.H1('Data Science Salary', style={'color': 'orange'}),
-    html.H2('Based on the year of data collection, company size, and experience level', 
+app.layout = dbc.Container([
+    dbc.Row([
+        dbc.Col([
+        html.Div(children=[
+            html.H1('Data Science Salary', style={'color': 'orange'},
+                 className = 'text-center'),
+            html.H2('Based on year, company size, and experience level', 
                             style={'color': 'orange'}),
-    html.Label("Select a year:"),
-    dcc.Dropdown(
-        id='year-dropdown',
-        options=[{'label': year, 'value': year} for year in years],
-        value=2020,
-        #style={'fontSize': '24px'}
-    ),
-    #html.Br(),
-    html.Label("Select a compnay size:"),    
-    dcc.Dropdown(
+            html.Label("Select a year:"),
+          dcc.Dropdown(
+          id='year-dropdown',
+          options=[{'label': year, 'value': year} for year in years],
+          value=2022,
+          #style={'fontSize': '24px'}
+       ),
+        #html.Br(),
+        html.Label("Select a compnay size:"),    
+        dcc.Dropdown(
         id='size-dropdown',
         options=[{'label': size, 'value': size} for size in company_sizes],
-        value=company_sizes[0]
-    ),
-    #html.Br(),
-    html.Label("Select an experience level:"),    
-    dcc.Dropdown(
+        value=company_sizes[2]
+        ),
+        #html.Br(),
+        html.Label("Select an experience level:"),    
+        dcc.Dropdown(
         id='experience-dropdown',
         options=[{'label': experience, 'value': experience} for experience in experiences],
-        value=experiences[0]
-    ),
-    dcc.Graph(id='salary-graph',
-              #style={'height': '800px', 'width': '800px'}
+        value=experiences[1]
+        ),
+        dcc.Graph(id='salary-graph',
+              style={'height': '600px', 'width': '100%', "border-width": "10"}
              )
 ])
-
+        ], #width = {'size':30}
+        )
+    ]#, justify = 'center'
+    )
+])
 # Define the callback function
 @app.callback(Output('salary-graph', 'figure'),
               [Input('year-dropdown', 'value'),
@@ -71,20 +79,22 @@ def update_graph(year, size, experience):
     salaries = filtered_df_group['salary_in_usd'].tolist()
     
     trace = go.Bar(
-        x = sorted_job_title,
-        y = salaries,
-        marker = {"color":"gold"}
+        y = sorted_job_title,
+        x = salaries,
+        marker = {"color":"gold"},
+        orientation='h'
     )
     layout = go.Layout(
-        title=f'Average Data Scientist Salaries at {size} Companies with {experience} Experience in {year} Sorted by Job Titles',
-        xaxis = dict(
-                title = 'Job Title',
-                titlefont=dict(
+        title=f'Average Salaries at {size} Companies with {experience} Experience in {year} Sorted by Job Titles',
+        yaxis = dict(
+                title = dict(text ='Job Title',
+                            font= dict(
                               size= 15,
                               #color='darkgreen'
-                )
+                )),
         ),
-        yaxis={'title': 'Salary (USD)'}
+        xaxis={'title': 'Salary (USD)'},
+        margin=dict(l=300, r=70, t=70, b=70),
     )
     return {'data': [trace], 'layout': layout}
 
