@@ -43,16 +43,16 @@ To install `data_science_salary` locally, you can:
 git clone https://github.com/YHuUBC/data_science_salary.git
 ```
 
-2. Packages used in by the app:
+2. Install the environment of this project in your terminal at the root directory with the following code:
 
-```{Python}
-pandas ~= 1.3.5
-dash ~= 2.8.1
-dash_bootstrap_components ~= 1.4.0
-plotly ~=5.13.1
 ```
-
-3. Finally, move to the `root` directory and run the following command to run the app locally:
+conda env create -f data_science_salary.yaml
+```
+3. Then, change your environment to this project's environment with the following code:
+```
+conda activate data_science_salary
+```
+4. Move to the `root` directory and run the following command to run the app locally:
 
 ```{Python}
 python app.py

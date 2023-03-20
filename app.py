@@ -22,7 +22,7 @@ years = [2020, 2021, 2022, 2023]
 experiences = ['Entry-level', 'Mid-level','Senior-level','Executive-level']
 
 # Create the app
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.DARKLY])
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.COSMO])
 
 # Define the layout
 app.layout = html.Div(children=[
