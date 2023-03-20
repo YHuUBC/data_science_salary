@@ -21,6 +21,8 @@ The dash app has been deployed on Render.com. It can be accessed [here](https://
 
 ## Motivation and research questions
 
+The link to my group milestone proposal: https://github.com/UBC-MDS/DS-Salaries/blob/main/reports/proposal.md
+
 Target audience: Our main target audience includes individuals searching for employment in the Data Science space. A secondary audience includes managers, recruiters, and founders looking to build a talented Data Science team.
 
 The main research questions addressed by DS-Salaries is:
