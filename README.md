@@ -33,7 +33,7 @@ The main research questions addressed by DS-Salaries is:
 
 Based on the motivation and aim of this app, it has a landing page that shows the distribution of data scientist salaries depending on the candidate’s experience level, the year of data collection, job titles, and company size.
 
-Specifically, this app shows the job titles with the average salary in descending order, filtered by the year, company size, and experience level. If the users put the mouse on top of the bar chart, they can see the values of the average salary of each job title. 
+Specifically, this app shows the job titles with the average salary in descending order, filtered by the year, company size, and experience level. Users can use the dropdown menus to select the year, company size, and experience level of their interest. If the users put the mouse on top of the bar chart, they can see the values of the average salary of each job title. 
 
 ## Installation
 
