@@ -90,7 +90,7 @@ def update_graph(year, size, experience):
                   "colorbar": {"title": "% of work done remotely",
                                "tickmode": "array",
                                "tickvals": [min(remote_ratio), max(remote_ratio)],
-                               "ticktext": [f"{min(remote_ratio)}", f"{max(remote_ratio)}"]}},
+                               "ticktext": [f"{round(min(remote_ratio),2)}", f"{round(max(remote_ratio),2)}"]}},
         name='Remote Ratio',
         #color = salaries,
         orientation='h'
