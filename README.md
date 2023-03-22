@@ -6,7 +6,7 @@
 
 The dash app has been deployed on Render.com. It can be accessed [here](https://data-science-salary.onrender.com/).
 
-![](img/demo.gif)
+![](img/demo.png)
 
 ## Motivation and research questions
 
