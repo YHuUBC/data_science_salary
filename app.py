@@ -14,12 +14,15 @@ df = pd.read_csv("data/salaries.csv")
 df['company_size'] = df['company_size'].replace({'S': 'Small', 'M': 'Middle', 'L': 'Large'})
 df['experience_level'] = df['experience_level'].replace({'EN': 'Entry-level', 'MI': 'Mid-level', 
                                                          'SE': 'Senior-level', 'EX': 'Executive-level'})
+df['employment_type'] = df['employment_type'].replace({'FT': 'Full-time', 'PT': 'Part-time', 
+                                                         'FL': 'Freelance', 'CT': 'Contract'})
 
 #company_sizes = df['company_size'].unique()
 #years = df['work_year'].unique()
 company_sizes = ['Small', 'Middle', 'Large']
 years = [2020, 2021, 2022, 2023]
 experiences = ['Entry-level', 'Mid-level','Senior-level','Executive-level']
+employment_type = ['Full-time', 'Part-time', 'Freelance', 'Contract']
 
 # Create the app, define server and title
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.SOLAR])
@@ -31,10 +34,10 @@ app.layout = dbc.Container([
     dbc.Row([
         dbc.Col([
         html.Div(children=[
-            html.H1('Data Science Salary', style={'color': 'orange'},
+            html.H1('Data Science Salary', style={'color': 'gold'},
                  className = 'text-center'),
             html.H2('Based on year, company size, and experience level', 
-                            style={'color': 'orange'}),
+                            style={'color': 'gold'}),
             html.Label("Select a year:"),
           dcc.Dropdown(
           id='year-dropdown',
@@ -77,11 +80,19 @@ def update_graph(year, size, experience):
     filtered_df_group = filtered_df_group.sort_values(by = 'salary_in_usd', ascending = False)
     sorted_job_title = filtered_df_group.index.tolist()
     salaries = filtered_df_group['salary_in_usd'].tolist()
+    remote_ratio = filtered_df_group['remote_ratio']#.tolist()
     
     trace = go.Bar(
         y = sorted_job_title,
         x = salaries,
-        marker = {"color":"gold"},
+        marker = {"color": remote_ratio,
+                  "colorscale": "viridis",
+                  "colorbar": {"title": "% of work done remotely",
+                               "tickmode": "array",
+                               "tickvals": [min(remote_ratio), max(remote_ratio)],
+                               "ticktext": [f"{min(remote_ratio)}", f"{max(remote_ratio)}"]}},
+        name='Remote Ratio',
+        #color = salaries,
         orientation='h'
     )
     layout = go.Layout(
@@ -95,6 +106,15 @@ def update_graph(year, size, experience):
         ),
         xaxis={'title': 'Salary (USD)'},
         margin=dict(l=300, r=70, t=70, b=70),
+    #    showlegend=True,
+    #     coloraxis_colorbar=dict(
+    #         title='Remote Ratio',
+    #         thickness=20,
+    #         len=0.5,
+    #         yanchor='top',
+    #         y=1,
+    #         ticks='outside')
+    # 
     )
     return {'data': [trace], 'layout': layout}
 
